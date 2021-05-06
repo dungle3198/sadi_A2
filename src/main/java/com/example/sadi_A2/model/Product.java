@@ -7,7 +7,7 @@ public class Product {
     @Id
     @Column
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private String id;
+    private int id;
     @Column
     private String name;
     @Column
@@ -19,7 +19,7 @@ public class Product {
     @Column
     private String description;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="categoryId")
     private Category category;
 
@@ -33,7 +33,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String id, String name, String model, String brand, String company, String description, float sellingPrice) {
+    public Product(int id, String name, String model, String brand, String company, String description, float sellingPrice) {
         super();
         this.id = id;
         this.name = name;
@@ -44,7 +44,7 @@ public class Product {
         this.sellingPrice = sellingPrice;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 

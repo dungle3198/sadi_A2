@@ -1,7 +1,7 @@
 package com.example.sadi_A2.config;
 
-import com.example.sadi_A2.model.Category;
-import com.example.sadi_A2.model.Product;
+import com.example.sadi_A2.model.*;
+import org.aspectj.weaver.ast.Or;
 import org.hibernate.SessionFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -14,7 +14,6 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.example.sadi_A2.model.Student;
 import com.example.sadi_A2.service.StudentService;
 
 import java.util.Properties;
@@ -41,6 +40,26 @@ public class AppConfig {
         return new Product();
     }
 
+    @Bean
+    public Customer customer() {
+        return new Customer();
+    }
+
+    @Bean
+    public Provider provider() {
+        return new Provider();
+    }
+
+    @Bean
+    public Staff staff() {
+        return new Staff();
+    }
+
+    @Bean
+    public Order order()
+    {
+        return new Order();
+    }
 
     @Bean
     public LocalSessionFactoryBean sessionFactory(){
